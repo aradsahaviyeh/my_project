@@ -1,0 +1,22 @@
+{% extends "post/index.html" %}
+
+
+{% block content %}
+<h3>In this page you can see posts</h3>
+<hr>
+
+<ul>
+    {% for post in posts %}
+    {% if post.is_publish == True %}
+        <li>
+            <a href="{% url 'post:post_detail' post.id %}">
+                <p>{{ post.title }}  <span>likes : {{post.votes}}</span></p>
+                <button style="background-color: green; border: none;"> <a style="text-decoration:none; color: white;" href="{% url "post:post_vote" post.id %}"> like </a> </button>
+            </a>
+        </li>
+    {% endif %}
+    {% empty %}
+        <li>No posts found.</li>
+    {% endfor %}
+</ul>
+{% endblock content %}

@@ -1,0 +1,18 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <center>
+            <h1>Hello welcome to my website</h1>
+            <p> if you want use this website you sould go to some app and use that app</p>
+            <hr>
+        </center>
+        <h2>there are some apps here to use :</h2>
+        <ul>
+            {% for app in apps %}
+                <li> <a href="{% url app|add:":index" %}"> {{app}} </a></li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>

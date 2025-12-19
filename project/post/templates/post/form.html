@@ -1,0 +1,12 @@
+{% extends "post/index.html" %}
+
+{% block content %}
+<form action="{% url "post:create_post" %}" method="post">
+    {% csrf_token %}
+    <input type="text" name="title">
+    <br>
+    <input type="text" name="caption">
+    <br>
+    <input type="submit">
+</form>
+{% endblock content %}

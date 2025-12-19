@@ -1,0 +1,11 @@
+{% extends "post/index.html" %}
+
+{% block content %}
+<h1> Hello welcome to this website </h1>
+<h2> You can see posts in this website </h2>
+<hr>
+<ul>
+    <li> <a href="{% url "post:post_list" %}"> for see posts </a> </li>
+    <li> <a href="{% url "post:create_post" %}"> for create post </a> </li>
+</ul>
+{% endblock content %}

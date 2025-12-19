@@ -1,0 +1,14 @@
+# Source - https://stackoverflow.com/a
+# Posted by Marcus Lind
+# Retrieved 2025-12-14, License - CC BY-SA 3.0
+
+*.log
+*.pot
+*.pyc
+__pycache__/
+migrations/
+db.sqlite3
+media
+my_secrets/
+.env
+env/

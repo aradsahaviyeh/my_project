@@ -1,0 +1,31 @@
+{% extends "post/index.html" %}
+
+
+{% block content %}
+<h1 style="text-align:center; color:white;"> you are in post detail page </h1>
+
+<hr>
+
+<form action="" method="post" style="padding:100px">
+    {% csrf_token %}
+    <fieldset style="color:white;">
+        <legend> {{post.title}} </legend>
+        <p> {{post.caption}} </p>
+    <small>{{post.created_at}}</small>
+    <ol>
+    {% for comment in post.comment_set.all %}
+        <li style="color:green ;"> {{comment}} <span> {{comment.votes}} </span> </li>
+        <label for="vote" style="color:grey;"> like this post </label>
+        <input type="radio" name="vote">
+        <input type="submit" value={{comment.id}}>
+        <br>
+    {% endfor %}
+    </ol>
+    <p>Likes : {{post.votes}}</p>
+    <div>
+        <button name="like" type="submit" value="{{post.id}}" style="width: 100px; height: 50px;" id="like">like post </button>
+        <button type="text" style="width: 100px; height: 50px;"> <a style="text-decoration:none; color:black;" href="{% url 'post:post_list' %}"> back to posts </a> </button>
+    </div>
+    </fieldset>
+</form>
+{% endblock content %}
